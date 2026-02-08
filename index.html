@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <title>Phrixr – Coming Soon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Phrixr is a new way to think about your health information. Coming soon." />
+  <meta name="description" content="Something new is coming." />
   <style>
     :root {
       --bg: #F4FAFB;
@@ -12,7 +12,6 @@
       --accent: #A3D9A5;
       --text: #102A43;
       --muted: #6B7B8C;
-      --pill-bg: #E2F4F4;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -20,396 +19,106 @@
       background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    .page {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 16px 20px 40px;
-    }
-    header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 8px 0 16px;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .container {
+      max-width: 580px;
+      text-align: center;
     }
     .logo-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 10px;
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
       background: radial-gradient(circle at 30% 20%, #A3D9A5, #006D77);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 28px;
+      margin: 0 auto 24px;
     }
     .logo-text {
       font-weight: 600;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
+      font-size: 32px;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+    .tagline {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .message {
       font-size: 18px;
-    }
-    .pill-button {
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.06);
-      background: white;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .hero {
-      padding: 24px 0 10px;
-    }
-    .eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .hero h1 {
-      font-size: 28px;
-      line-height: 1.15;
-      margin-bottom: 10px;
-      color: var(--primary);
-    }
-    .hero-subtitle {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    /* Toggle */
-    .toggle-wrapper {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 999px;
-      padding: 3px;
-      background: var(--pill-bg);
-      margin-bottom: 18px;
-    }
-    .toggle-option {
-      font-size: 12px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      color: var(--muted);
-      transition: all 0.18s ease;
-      white-space: nowrap;
-    }
-    .toggle-option.active {
-      background: white;
-      color: var(--primary);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      font-weight: 500;
-    }
-
-    .highlight-card {
-      border-radius: 16px;
-      background: white;
-      padding: 14px 14px;
-      box-shadow: 0 12px 26px rgba(15, 52, 96, 0.08);
-      margin-bottom: 20px;
-    }
-    .highlight-line {
-      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 32px;
       color: var(--text);
-      line-height: 1.5;
     }
-
-    .role-snippet {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .waitlist {
-      margin-bottom: 24px;
-    }
-    .waitlist-label {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .waitlist-row {
-      display: flex;
-      gap: 8px;
-    }
-    .waitlist-row input {
-      flex: 1;
-      padding: 10px 12px;
+    .cta {
+      display: inline-block;
+      padding: 12px 28px;
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,0.08);
-      font-size: 13px;
-      outline: none;
-    }
-    .waitlist-row button {
-      border-radius: 999px;
-      border: none;
       background: var(--primary);
       color: white;
-      font-size: 13px;
-      padding: 0 16px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-    .waitlist-note {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .teasers {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-    .teaser-card {
-      border-radius: 14px;
-      background: white;
-      padding: 12px 13px;
-      border: 1px solid rgba(0,0,0,0.03);
-    }
-    .teaser-title {
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .teaser-body {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .cta-strip {
-      border-radius: 16px;
-      background: linear-gradient(120deg, #006D77, #249EA0);
-      color: white;
-      padding: 14px 16px;
-      margin-bottom: 24px;
-    }
-    .cta-strip-title {
       font-size: 14px;
       font-weight: 500;
-      margin-bottom: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
     }
-    .cta-strip-body {
-      font-size: 12px;
+    .cta:hover {
       opacity: 0.9;
-      margin-bottom: 8px;
     }
-    .cta-strip-tag {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.3);
-      display: inline-block;
-    }
-
-    footer {
-      padding-top: 8px;
-      border-top: 1px solid rgba(0,0,0,0.04);
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .footer-text {
+    .footer {
+      margin-top: 60px;
       font-size: 11px;
       color: var(--muted);
     }
-    .footer-links {
-      display: flex;
-      gap: 12px;
-      font-size: 11px;
-      color: var(--muted);
+    .footer a {
+      color: inherit;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+    .footer a:hover {
+      text-decoration: underline;
     }
 
     @media (min-width: 640px) {
-      .hero h1 { font-size: 32px; }
-      .teasers { grid-template-columns: repeat(3, 1fr); }
+      .logo-text { font-size: 38px; }
+      .message { font-size: 20px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="logo">
-        <div class="logo-mark">P</div>
-        <div class="logo-text">Phrixr</div>
-      </div>
-      <button class="pill-button" onclick="scrollToWaitlist()">Join waitlist</button>
-    </header>
+  <div class="container">
+    <div class="logo-mark">P</div>
+    <div class="logo-text">Phrixr</div>
+    <div class="tagline">Your PHR Matrix – Secure, Complete, Yours</div>
+    
+    <p class="message">
+      Something new is being built.<br />
+      Quietly. Carefully. For you.
+    </p>
 
-    <main>
-      <section class="hero">
-        <div class="eyebrow">Coming soon</div>
-        <h1>Something new for your health story.</h1>
-        <p class="hero-subtitle">
-          We’re quietly building a modern way to hold what matters most in your medical life —
-          with you at the center.
-        </p>
+    <a href="mailto:hello@phrixr.com" class="cta">Get in touch</a>
 
-        <div class="toggle-wrapper" aria-label="Choose your perspective">
-          <div class="toggle-option active" data-role="patient">For patients</div>
-          <div class="toggle-option" data-role="doctor">For doctors</div>
-        </div>
-
-        <div class="highlight-card">
-          <p class="highlight-line" id="roleHighlight">
-            Not another step counter. Not another chat bot.<br />
-            A calmer, more private space for your health information.
-          </p>
-        </div>
-        <p class="role-snippet" id="roleSnippet">
-          Early access will open first for people who already feel the friction of carrying their health story everywhere.
-        </p>
-      </section>
-
-      <section class="waitlist" id="waitlist">
-        <div class="waitlist-label">Be the first to know</div>
-
-        <!-- Replace the form section in your landing page with this: -->
-
-        <form
-          id="waitlistForm"
-          method="POST"  
-          action="https://docs.google.com/forms/d/e/1FAIpQLSfCTauEdINuKUuJVltVyiUYxIfLceigKRisGB0DWbSoa_fK4Q/formResponse"
-          target="hidden_iframe"
-          onsubmit="handleSubmit(event)"
-        >
-          <input
-            type="email"
-            name="entry.1283711157"
-            id="emailField"
-            placeholder="Enter your email"
-            required
-          />
-          <input
-            type="hidden"
-            name="entry.1338427330"
-            id="roleField"
-            value="patient"
-          />
-          <button type="submit">Notify me</button>
-        </form>
-        
-        <iframe name="hidden_iframe" style="display:none;"></iframe>
-        
-        <script>
-        function handleSubmit(e) {
-          setTimeout(() => {
-            document.getElementById('waitlistNote').textContent = 
-              'Got it. We'll be in touch when Phrixr is ready.';
-            document.getElementById('emailField').value = '';
-          }, 600);
-        }
-        </script>
-
-      </section>
-
-      <section class="teasers">
-        <div class="teaser-card">
-          <div class="teaser-title">Quietly secure</div>
-          <div class="teaser-body">
-            Designed from day one with privacy in mind, for people who don’t want their health to be a product.
-          </div>
-        </div>
-        <div class="teaser-card">
-          <div class="teaser-title">Made for real life</div>
-          <div class="teaser-body">
-            Prescriptions, reports, visits, moments you don’t want to forget — all in one calm place.
-          </div>
-        </div>
-        <div class="teaser-card">
-          <div class="teaser-title">On your terms</div>
-          <div class="teaser-body">
-            Share when you choose, with whom you choose, for exactly as long as you choose.
-          </div>
-        </div>
-      </section>
-
-      <section class="cta-strip">
-        <div class="cta-strip-title">Built for patients. Thoughtfully.</div>
-        <div class="cta-strip-body">
-          If you’ve ever walked into a clinic with a folder of papers and a phone full of screenshots,
-          Phrixr is being built for you — and for the people who care for you.
-        </div>
-        <div class="cta-strip-tag">
-          Early access · Limited invite list
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-text">
-        © <span id="year"></span> Phrixr Health. All rights reserved.
-      </div>
-      <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="mailto:hello@phrixr.com">Contact</a>
-      </div>
-    </footer>
+    <div class="footer">
+      © <span id="year"></span> Phrixr Health
+      <br />
+      <a href="mailto:hello@phrixr.com">Contact</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
   </div>
 
   <script>
-    // Set year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Smooth scroll to waitlist
-    function scrollToWaitlist() {
-      const el = document.getElementById('waitlist');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Toggle logic
-    const toggleOptions = document.querySelectorAll('.toggle-option');
-    const roleHighlight = document.getElementById('roleHighlight');
-    const roleSnippet = document.getElementById('roleSnippet');
-    const roleField = document.getElementById('roleField');
-
-    toggleOptions.forEach(opt => {
-      opt.addEventListener('click', () => {
-        toggleOptions.forEach(o => o.classList.remove('active'));
-        opt.classList.add('active');
-        const role = opt.getAttribute('data-role');
-        roleField.value = role;
-
-        if (role === 'patient') {
-          roleHighlight.innerHTML =
-            'Not another step counter. Not another chat bot.<br />A calmer, more private space for your health information.';
-          roleSnippet.textContent =
-            'Early access will open first for people who already feel the friction of carrying their health story everywhere.';
-        } else {
-          roleHighlight.innerHTML =
-            'Not another practice management system.<br />A quieter way to see what matters, when your patients invite you in.';
-          roleSnippet.textContent =
-            'We’ll invite a small group of clinicians who care deeply about continuity, context and consent.';
-        }
-      });
-    });
-
-    // Optional: show a small success message after submit (without redirect)
-    const waitlistForm = document.getElementById('waitlistForm');
-    const waitlistNote = document.getElementById('waitlistNote');
-
-    waitlistForm.addEventListener('submit', function () {
-      // Delay a bit to ensure form POST fires to iframe
-      setTimeout(() => {
-        waitlistNote.textContent = 'Got it. We’ll be in touch when Phrixr is ready.';
-      }, 600);
-    });
   </script>
 </body>
 </html>
